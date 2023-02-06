@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <context:property-placeholder location="application.properties"/>
+
+    <bean id="products"
+          class="peaksoft.classes.ProductsMarket">
+    </bean>
+
+    <bean id="sweets"
+          class="peaksoft.classes.SweetsMarket">
+    </bean>
+
+    <bean id="globalCenter"
+          class="peaksoft.classes.GlobalCenter">
+        <property name="market" ref="products"></property>
+        <property name="name" value="${name}"></property>
+        <property name="location" value="${location}"></property>
+        <property name="webSite" value="${webSite}"></property>
+
+<!--    With Code    -->
+<!--        <property name="name" value="Dostor"></property>-->
+<!--        <property name="location" value="M.Gvardiya 74"></property>-->
+<!--        <property name="webSite" value="http://www.dostor.kg"></property>-->
+    </bean>
+
+    <!--  With Constructor and List  -->
+    <!--    <bean id="globalCenter"-->
+    <!--          class="peaksoft.classes.GlobalCenter">-->
+    <!--        <constructor-arg name="markets">-->
+    <!--        <list>-->
+    <!--            <ref bean="productsMarket"></ref>-->
+    <!--            <ref bean="sweetsMarket"></ref>-->
+    <!--        </list>-->
+    <!--        </constructor-arg>-->
+    <!--    </bean>-->
+</beans>
